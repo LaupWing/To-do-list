@@ -1,3 +1,6 @@
+.preload{
+  transition: none !important;
+}
 .alert{
   display: flex;
   background: orange;
@@ -20,8 +23,16 @@
   text-decoration: line-through;
   opacity: 0.5;
 }
+.hidden{
+  opacity: 0;
+}
+
 .visibility{
   opacity: 0.5;
+}
+
+body.setBlock{
+  display: block;
 }
 html{
   font-family: 'Montserrat', sans-serif !important;
@@ -35,6 +46,10 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+}
+body > *{
+  margin: auto;
 }
 header{
  width: 100%;
@@ -120,6 +135,8 @@ button:hover{
 }
 .item-name{
   font-size: 16px;
+  font-weight: 400;
+  width: 80%;
 }
 .item-icons{
   width: 20%;
@@ -140,4 +157,14 @@ button:hover{
 .startTransition{
   transform: translate(0, 0)!important;
   opacity: 1;
+}
+
+.counter{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: #C243FF;
+  border-radius: 50px 10px 0 10px;
 }

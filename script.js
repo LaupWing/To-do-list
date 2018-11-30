@@ -6,8 +6,6 @@ const clearBtn = document.querySelector("#clear-lijst");
 const feedback = document.querySelector(".feedback");
 const header = document.querySelector("header")
 
-const startPosHeader = header.getBoundingClientRect().top;
-console.log(startPosHeader)
 
 
 let itemData = JSON.parse(localStorage.getItem("list")) || []; // Als de parse van de localStorage
@@ -57,7 +55,7 @@ itemForm.addEventListener('submit', function(event) {
     localStorage.setItem("list", JSON.stringify(itemData))
     handleItem(textValue);
   }
-
+  changeDisplay()
 });
 // Laat de feedback zien als er niks word ingevuld
 function showFeedback(text, action) {
@@ -102,7 +100,6 @@ function transitionItem(textValue) {
         item.style.transform = `translate(0,${startPos}px)`
         setTimeout(function() {
           // item.style.opacity = 1;
-          console.log(this)
           item.classList.add("startTransition")
         }, 100)
       }
@@ -131,6 +128,7 @@ function handleItem(textValue) {
         .addEventListener("click", function() {
           item.querySelector(".item-name").classList.toggle("completed")
           this.classList.toggle("visibility")
+          checkAllitems()
         })
       // edit events
       item
@@ -161,20 +159,21 @@ function handleItem(textValue) {
 
 clearBtn.addEventListener("click", function() {
   itemData = [] // clear array
-  const currentPosHeader =  header.getBoundingClientRect().top
-  const resetPos = startPosHeader-currentPosHeader
-
   localStorage.removeItem("list");
+  document.querySelector("body").classList.remove("setBlock")
   transitionItem(" ");
-  header.style.transform = `translate(0, ${resetPos}px)`
+  header.classList.add("hidden")
+  clearBtn.classList.add("hidden")
   const items = itemList.querySelectorAll(".item");
   setTimeout(function() {
-    header.style.transform = "translate(0,0)"
+
     if (items.length > 0) { // Om te checken of items bestaat
       items.forEach(function(item) {
         itemList.removeChild(item) // item in itemlist word verwijderd. Oftewel elke geloopte item in itemList
       })
     }
+    header.classList.remove("hidden")
+    clearBtn.classList.remove("hidden")
   },500)
 
 })
