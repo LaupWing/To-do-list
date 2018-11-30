@@ -1,0 +1,143 @@
+.alert{
+  display: flex;
+  background: orange;
+  position: absolute;
+  top: 0;
+  width: 30%;
+  max-width:500px;
+  color: white;
+  height: 60px;
+  border-radius: 0 0 15px 15px;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  transform: translate(0,-60px);
+}
+.showItem{
+  transform: translate(0,0);
+}
+.completed{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.visibility{
+  opacity: 0.5;
+}
+html{
+  font-family: 'Montserrat', sans-serif !important;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+header{
+ width: 100%;
+ text-align: center;
+ transition: .25s
+}
+h3{
+  font-size: 26px;
+}
+button{
+  transition: .2s;
+  background: none;
+  outline: none;
+  border: #D47BFF solid 2px;
+  padding: 3px;
+  color: #D47BFF;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif !important;
+}
+i{
+  font-size: 25px;
+  transition: .2s;
+}
+i:hover{
+  transform: scale(1.2);
+}
+iframe{
+  z-index: 10;
+  position: fixed;
+  transform: scale(0);
+  transition: 1s;
+}
+.container{
+  /* background: rgba(0,0,0,0.7); */
+  width: 80%;
+  max-width: 600px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+#itemForm{
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+#itemForm input{
+  width: 100%;
+  padding: 5px;
+  border: #D47BFF solid 2px;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif !important;
+}
+#itemForm button{
+  transform: translate(-2px, 0);
+  border-radius:0 8px 8px 0;
+}
+#clear-lijst{
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 8px;
+}
+button:hover{
+  background: #BC2EFF;
+  color: white;
+  cursor: pointer;
+}
+.item-container{
+  width: 100%;
+}
+.item{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: .3s;
+}
+.item-name{
+  font-size: 16px;
+}
+.item-icons{
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.complete-item{
+  margin-right: 5px;
+  color: #BC2EFF;
+}
+.edit-item{
+  color:#0BB5FF;
+}
+.delete-item{
+  color:red;
+}
+.startTransition{
+  transform: translate(0, 0)!important;
+  opacity: 1;
+}
